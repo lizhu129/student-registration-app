@@ -5,6 +5,8 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import ListStudentComponent from "./components/ListStudentComponent";
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
+import CreateStudentComponent from './components/CreateStudentComponent';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<ListStudentComponent />}></Route>
                 <Route path='/students' element={<ListStudentComponent />}></Route>
+                <Route path='/add' element={<CreateStudentComponent />}></Route>
               </Routes>
             </div>
               <FooterComponent />

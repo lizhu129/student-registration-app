@@ -8,8 +8,9 @@ class ListStudentComponent extends Component {
         this.state = {
             students: []
         }
-    }
 
+    }  
+    
     componentDidMount() {
         StudentsService.getStudents().then(res => {
             this.setState({students: res.data});
@@ -20,6 +21,9 @@ class ListStudentComponent extends Component {
         return (
             <div>
                 <h2 className="text-center">Students List</h2>
+                <div className='row'>
+                    <button className='btn btn-primary' onClick={event =>  window.location.href='/add'}>Add Student</button>
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
