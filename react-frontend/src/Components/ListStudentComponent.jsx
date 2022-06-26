@@ -9,6 +9,9 @@ class ListStudentComponent extends Component {
             students: []
         }
 
+        this.editStudent.bind(this);
+        this.deleteStudent.bind(this);
+
     }  
     
     componentDidMount() {
@@ -20,6 +23,12 @@ class ListStudentComponent extends Component {
 
     editStudent(Id) {
         this.props.history.push('/update/$(id)');
+    }
+
+    deleteStudent(Id) {
+        StudentsService.deleteStudent(Id).then( res => {
+            this.setState({students: this.state.students.filter(students => students.Id !== Id)});
+        });
     }
 
     render() {
@@ -49,6 +58,7 @@ class ListStudentComponent extends Component {
                                         <td> {student.email} </td>   
                                         <td>
                                             <button onClick={() => this.editStudent(student.Id)} className='btn btn-info'>Update</button>
+                                            <button style={{marginLeft: "10px"}} onClick={() => this.deleteStudent(student.Id)} className='btn btn-danger'>Delete</button>
                                         </td>                              
                                     </tr>
                                 )
