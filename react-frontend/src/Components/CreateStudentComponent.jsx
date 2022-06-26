@@ -39,6 +39,10 @@ class CreateStudentComponent extends Component {
         console.log('student => ' + JSON.stringify(student));
     }
 
+    cancel() {
+        this.props.history.push('/students');
+    }
+
      
     render() {
         return (
@@ -66,7 +70,7 @@ class CreateStudentComponent extends Component {
                                     </div>
 
                                     <button className='btn btn-success' onClick={this.saveStudent}>Save</button>
-                                    <button className='btn btn-danger' onClick={event =>  window.location.href='/students'} style={{marginLeft: "10px"}}>Cancel</button>
+                                    <button className='btn btn-danger' onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
                         </div>
