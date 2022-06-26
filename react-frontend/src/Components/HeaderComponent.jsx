@@ -13,7 +13,7 @@ class HeaderComponent extends Component {
         return (
             <div>
                 <header>
-                    <nav class="navbar navbar-dark bg-dark">
+                    <nav className="navbar navbar-dark bg-dark">
                     <div><a href="https://www.google.com" className='navbar-brand'>Student Registration App</a></div>
                     </nav>
                 </header>
