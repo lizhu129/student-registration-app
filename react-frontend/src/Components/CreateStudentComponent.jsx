@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StudentsService from '../services/StudentsService';
 
 class CreateStudentComponent extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class CreateStudentComponent extends Component {
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.saveStudent = this.saveStudent.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     changeFirstNameHandler= (event) => {
@@ -32,11 +34,14 @@ class CreateStudentComponent extends Component {
 
     }
 
-
     saveStudent = (e) => {
         e.preventDefault();
         let student = {firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email};
         console.log('student => ' + JSON.stringify(student));
+
+        StudentsService.createStudent(student).then(res => {
+            this.props.history.push('/students');
+        });
     }
 
     cancel() {
