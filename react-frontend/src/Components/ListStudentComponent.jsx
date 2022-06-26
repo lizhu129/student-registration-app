@@ -17,6 +17,11 @@ class ListStudentComponent extends Component {
         });
     }
 
+
+    editStudent(Id) {
+        this.props.history.push('/update/$(id)');
+    }
+
     render() {
         return (
             <div>
@@ -41,7 +46,10 @@ class ListStudentComponent extends Component {
                                     <tr key = {student.Id}>
                                         <td> {student.firstName} </td>
                                         <td> {student.lastName} </td>
-                                        <td> {student.email} </td>                                 
+                                        <td> {student.email} </td>   
+                                        <td>
+                                            <button onClick={() => this.editStudent(student.Id)} className='btn btn-info'>Update</button>
+                                        </td>                              
                                     </tr>
                                 )
                             }

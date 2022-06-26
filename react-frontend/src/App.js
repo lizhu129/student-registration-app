@@ -5,6 +5,7 @@ import ListStudentComponent from "./components/ListStudentComponent";
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreateStudentComponent from './components/CreateStudentComponent';
+import UpdateStudentComponent from './components/UpdateStudentComponent';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Route path='/' element={<ListStudentComponent />}></Route>
                 <Route path='/students' element={<ListStudentComponent />}></Route>
                 <Route path='/add' element={<CreateStudentComponent />}></Route>
+                <Route path='/update/:id' element={<UpdateStudentComponent />}></Route>
               </Routes>
             </div>
               <FooterComponent />
